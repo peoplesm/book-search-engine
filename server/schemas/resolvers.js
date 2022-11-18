@@ -63,7 +63,7 @@ const resolvers = {
         if (context.user) {
           return await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $addToSet: { savedBooks } },
+            { $addToSet: { savedBooks: { ...args } } },
             { new: true, runValidators: true }
           );
         }
