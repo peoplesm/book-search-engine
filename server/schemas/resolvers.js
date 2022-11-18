@@ -23,7 +23,7 @@ const resolvers = {
 
   Mutation: {
     // Create user object based on User model
-    createUser: async (parent, args) => {
+    addUser: async (parent, args) => {
       try {
         const user = await User.create(args);
         const token = signToken(user);
@@ -74,7 +74,7 @@ const resolvers = {
     },
 
     //Delete a book from the user
-    deleteBook: async (parent, args, context) => {
+    removeBook: async (parent, args, context) => {
       try {
         if (context.user) {
           return await User.findOneAndUpdate(
